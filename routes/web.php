@@ -6,6 +6,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::any('produtos/search', 'ProdutoController@search')->name('produtos.search');
 Route::resource('produtos', 'ProdutoController'); //->middleware('auth');
 
 /*

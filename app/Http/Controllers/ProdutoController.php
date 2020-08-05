@@ -126,4 +126,13 @@ class ProdutoController extends Controller
 
         return redirect()->route('produtos.index');
     }
+
+    public function search(Request $request)
+    {
+        $produtos = $this->repository->search($request->filter);
+
+        return view('admin.pages.produtos.index', [
+            'produtos' => $produtos,
+        ]);
+    }
 }

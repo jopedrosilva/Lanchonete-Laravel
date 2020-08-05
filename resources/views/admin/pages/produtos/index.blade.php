@@ -10,6 +10,12 @@
 
     <hr>
 
+    <form action="{{ route('produtos.search') }}" method="POST" class="form">
+        <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">  
+        <input type="text" name="filter" placeholder="Pesquisar: ">
+        <button type="submit">Pesquisar</button>
+    </form>
+
     <table border="1">
         <thead>
             <tr>

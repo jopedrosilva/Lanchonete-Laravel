@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Eloquent\Model;
 
-class produto extends Migration
+class produto extends Model
 {
+    protected $fillable = ['nome', 'preco',];
     public function up()
     {
-    
+        //protected $table = 'produtos';
+        
     }
     
 }

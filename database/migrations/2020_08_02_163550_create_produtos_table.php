@@ -15,9 +15,9 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {
-            $table->increments('ID_Produto');
-            $table->string('produto_nome');
-            $table->double('produto_preco', 10, 2);
+            $table->increments('id');
+            $table->string('nome');
+            $table->double('preco', 10, 2);
             $table->timestamps();
         });
     }

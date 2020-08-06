@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('title', "Detalhes do Produto {$produto->nome}")    
+{{--@section('title', "Detalhes do Produto {$produto->nome}")--}}
 
 @section('content')
 

@@ -135,15 +135,34 @@ class PedidoController extends Controller
             return redirect()->back();
         } else {
             $pedido->update($request->all());
-            return redirect()->route('pedidos.todospedidos');
-        }
-          
-        
 
-        //return redirect()->back();
-        //dd($pedido);
-        //return redirect()->route('pedidos.index');
+        
+            return redirect()->route('pedidos.todospedidos');
+            
+        }
     }
+
+    /*public function atualizar(Request $request, $id)
+    {
+        if (!$pedido = $this->repository->find($id)){
+            return redirect()->back();
+        } else {
+            $pedido->update($request->all());
+           // dd($request);
+            
+        }
+    }*/
+
+    /*public function update_cliente(Request $request, $id)
+    {
+        if (!$pedido = $this->repository->find($id)){
+            return redirect()->back();
+        } else {
+            $pedido->update($request->all());
+            //dd($request);
+            return redirect()->route('pedidos.listpedidos');
+        }
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -154,12 +173,14 @@ class PedidoController extends Controller
     public function destroy($id)
     {
         $pedido = $this->repository->where('id', $id)->first();
-        if (!$pedido)
+        if (!$pedido){
             return redirect()->back();
+        } else {
 
-        $pedido->delete();
+            $pedido->delete();
 
-        return redirect()->route('pedidos.index');
+            return redirect()->route('clientes.index');
+        }
     }
 
     /*public function search(Request $request)

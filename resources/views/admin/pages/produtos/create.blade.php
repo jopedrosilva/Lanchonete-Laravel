@@ -12,4 +12,3 @@
         <input type="text" name="preco" placeholder="Preço:">
         <button type="submit">Cadastrar</button>
     </form>
-@endsection

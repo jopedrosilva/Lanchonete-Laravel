@@ -10,5 +10,3 @@
     <li><strong>Nome: </strong>{{ $produto->nome }}</li>
     <li><strong>Preço: </strong>{{ $produto->preco}}</li>
 </ul>
-
-@endsection

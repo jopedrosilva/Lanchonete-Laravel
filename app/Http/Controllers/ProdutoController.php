@@ -33,6 +33,14 @@ class ProdutoController extends Controller
         ]);
     }
 
+    public function listprodutos()
+    {
+        $produtos = produto::all();
+        return view('welcome', [
+            'produtos' => $produtos,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

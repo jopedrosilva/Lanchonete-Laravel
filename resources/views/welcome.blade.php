@@ -66,13 +66,25 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+           {{--@if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
+                        <a href="{{ route('login') }}">Painel Administrativo</a>
+
+                    @endauth
+                </div>
+            @endif--}}
+
+            @if (Route::has('login'))
+                <div class="top-right links">    
+                    @auth
+                        <a href="{{ url('/paineladmin') }}">Painel Administrativo</a>
+                    @else
+                        <a href="{{ route('login') }}">Login Administrativo</a>
                     @endauth
                 </div>
             @endif
@@ -82,10 +94,46 @@
                     Lanchonete
                 </div>
 
-                <div class="links">
-                    <a href="{{ url('/produtos') }}">Painel Administrativo</a>
-                    <a href="https://laracasts.com">Cadastro Cliente</a>
-                </div>
+                {{--<div class="links">
+                    @if (Route::has('login'))
+                        
+                    @endif
+                    <a href="{{ url('/produtos') }}">Cadastro Cliente</a>
+                </div>--}}
+
+                <h1>Produtos Disponíveis</h1>
+
+                <hr>
+
+                {{--
+                    <form action="{{ route('produtos.search') }}" method="POST" class="form">
+                    <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">  
+                    <input type="text" name="filter" placeholder="Pesquisar: ">
+                    <button type="submit">Pesquisar</button>
+                </form>
+                --}}
+
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Comprar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($produtos as $produto)
+                            <tr>
+                            <td>{{ $produto->nome }}</td>
+                            <td>{{ $produto->preco }}</td>
+                            <td>
+                                <a href="{{ route('produtos.show', $produto->id)}}">Detalhar</a>
+                            </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </body>

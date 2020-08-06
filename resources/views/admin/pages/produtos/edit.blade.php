@@ -12,4 +12,3 @@
     <input type="text" name="descricao" placeholder="Preço:" value="{{ $produto->preco }}">
         <button type="submit">Cadastrar</button>
     </form>
-@endsection

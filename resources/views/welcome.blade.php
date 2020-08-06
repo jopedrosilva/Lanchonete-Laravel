@@ -127,7 +127,7 @@
                             <td>{{ $produto->nome }}</td>
                             <td>{{ $produto->preco }}</td>
                             <td>
-                                <a href="{{ route('produtos.show', $produto->id)}}">Detalhar</a>
+                                <a href="{{ route('clientes.create')}}">Comprar</a>
                             </td>
                             </tr>
                         @endforeach

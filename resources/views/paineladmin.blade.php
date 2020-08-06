@@ -8,5 +8,5 @@
 
     <hr>
     <a href="{{ url('/produtos') }}">Gerenciar Produtos</a>
-
-    <a href="">Listar Clientes</a>
+    <br/>
+    <a href="{{ url('/listarclientes')}}">Listar Clientes</a>

@@ -10,20 +10,20 @@
 
     <hr>
 
-    {{--<form action="{{ route('produtos.search') }}" method="POST" class="form">
-        <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">  
-        <input type="text" name="filter" placeholder="Pesquisar: ">
-        <button type="submit">Pesquisar</button>
-    </form>--}}
+    <h5>Bem Vindo, {{ $teste->nome }}</h5>
 
-    {{--<table border="1">
+    <hr>
+
+    <a href="{{ route('pedidos.listpedidos', $teste->id) }}">Meus Pedidos</a>
+
+    <hr>
+
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nome</th>
                 <th>Preço</th>
-                <th>Detalhar</th>
-                <th>Editar</th>
-                <th>Deletar</th>
+                <th>Comprar</th>
             </tr>
         </thead>
         <tbody>
@@ -32,26 +32,25 @@
                 <td>{{ $produto->nome }}</td>
                 <td>{{ $produto->preco }}</td>
                 <td>
-                    <a href="{{ route('produtos.show', $produto->id)}}">Detalhar</a>
-                </td>
-                <td>
-                    <a href="{{ route('produtos.edit', $produto->id) }}">Editar</a>
-                </td>
-                <td>
-                    <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
+                    <form action="{{ route('pedidos.store') }}" method="POST">
                         <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit">Deletar</button>
+                        <input style="display:none;" type="text" name="codigo_do_cliente" value="{{ $teste->id }}">
+                        <input style="display:none;" type="text" name="codigo_do_produto" value="{{ $produto->id }}">
+                        <input style="display:none;" type="text" name="data_de_criacao" value="<?php $data = new DateTime();
+                        echo $data->format('Y-m-d H:i:s');?>">
+                        <input style="display:none;" type="text" name="status" value="Pendente">
+                        <button type="submit">Comprar</button>
                     </form>
+
+                    {{--<a href="{{ route('clientes.create')}}">Comprar</a>--}}
                 </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
---}}
-@foreach ($clientes as $cliente)
-    <tr>
-        <td>{{ $cliente->nome }}</td>
-    </tr>
-@endforeach
-Cadastrou...
+
+{{--<div>{{ $teste->id }}</div>
+<div>{{ $teste->nome }}</div>
+<div>{{ $teste->email }}</div>
+<div>{{ $teste->telefone }}</div>
+<div>{{ $teste->endereco }}</div>--}}

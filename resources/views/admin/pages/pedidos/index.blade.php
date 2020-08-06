@@ -1,22 +1,22 @@
 @extends('admin.layout.app')
 
-@section('title', 'Gestão de Produtos')    
+@section('title', 'Painel Cliente')    
 
 @section('content')
 
-    <h1>Exibindo os Produtos</h1>
+    <h1>Painel Cliente</h1>
 
-    <a href="{{ route('produtos.create') }}">Cadastar</a>
+    {{--<a href="{{ route('produtos.create') }}">Cadastar</a>--}}
 
     <hr>
 
-    <form action="{{ route('produtos.search') }}" method="POST" class="form">
+    {{--<form action="{{ route('produtos.search') }}" method="POST" class="form">
         <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">  
         <input type="text" name="filter" placeholder="Pesquisar: ">
         <button type="submit">Pesquisar</button>
-    </form>
+    </form>--}}
 
-    <table class="table table-striped">
+    {{--<table border="1">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -48,3 +48,10 @@
             @endforeach
         </tbody>
     </table>
+--}}
+@foreach ($clientes as $cliente)
+    <tr>
+        <td>{{ $cliente->nome }}</td>
+    </tr>
+@endforeach
+Cadastrou...

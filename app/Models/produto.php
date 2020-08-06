@@ -19,5 +19,15 @@ class produto extends Model
 
         return $results;
     }
-    
+
+    public function search_produtos($id){
+        $results = $this-> where(function ($query) use ($id){
+            if (isset($id))
+                $query->where('codigo_do_produto', $id);
+
+        })//->toSql();
+        ->paginate();
+
+        return $results;
+    }
 }

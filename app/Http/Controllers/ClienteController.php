@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\cliente;
+use App\Models\produto;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\DB;
 
 class ClienteController extends Controller
 {
@@ -23,14 +26,14 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //$teste = 1234;
-        //$produtos = ['TV', 'Celular', 'Cadeira', 'Forno', 'Porta'];
-        //return view('teste', compact('teste'));
-        $clientes = cliente::all();
+        $teste = cliente::latest()->first();
+        $produtos = produto::all();
         return view('admin.pages.clientes.index', [
-            'clientes' => $clientes,
+            'teste' => $teste,
+            'produtos' => $produtos,
         ]);
     }
+
 
     public function listarclientes()
     {
@@ -60,9 +63,7 @@ class ClienteController extends Controller
     {
         $data = $request->only('nome', 'email', 'telefone', 'endereco');
         $this->repository->create($data);
-        //produto::create($data);
-        
-        //dd($request->only('nome', 'preco'));
+
         return redirect()->route('clientes.index');
 
     }
@@ -134,16 +135,14 @@ class ClienteController extends Controller
         return redirect()->route('clientes.index');
     }
 
-    /*
+    
 
-    public function search(Request $request)
+    /*public function search(Request $request)
     {
         $clientes = $this->repository->search($request->filter);
 
         return view('admin.pages.clientes.index', [
             'clientes' => $clientes,
         ]);
-    }
-
-    */
+    }*/
 }

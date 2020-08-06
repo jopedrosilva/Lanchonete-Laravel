@@ -15,6 +15,7 @@ Route::get('listarclientes', function () {
 Auth::routes();
 
 Route::any('produtos/search', 'ProdutoController@search')->name('produtos.search');
+Route::any('clientes/search', 'ProdutoController@search')->name('produtos.search');
 //Route::resource('produtos', 'ProdutoController'); //->middleware('auth');
 
 
@@ -27,6 +28,8 @@ Route::get('produtos', 'ProdutoController@index')->name('produtos.index')->middl
 Route::post('produtos', 'ProdutoController@store')->name('produtos.store')->middleware('auth');
 Route::get('/', 'ProdutoController@listprodutos')->name('produtos.listprodutos');
 
+Route::get('gerenciarpedidos', 'PedidoController@todospedidos')->name('pedidos.todospedidos')->middleware('auth');
+
 
 //Rotas Clientes
 
@@ -36,10 +39,23 @@ Route::get('clientes/{id}/edit', 'ClienteController@edit')->name('clientes.edit'
 Route::get('clientes/create', 'ClienteController@create')->name('clientes.create');//->middleware('auth');
 Route::get('clientes/{id}', 'ClienteController@show')->name('clientes.show');
 Route::get('clientes', 'ClienteController@index')->name('clientes.index');//->middleware('auth');
-Route::post('clientes', 'ClienteController@store')->name('clientes.store');//->middleware('auth');
+Route::post('{clientes', 'ClienteController@store')->name('clientes.store');//->middleware('auth');
 
 Route::get('listarclientes', 'ClienteController@listarclientes')->name('clientes.listarclientes')->middleware('auth');
+//Route::get('clientes', 'ClienteController@listprodutos')->name('clientes.listprodutos');
+//Rotas Pedidos
 
+Route::delete('pedidos/{id}', 'PedidoController@destroy')->name('pedidos.destroy');//->middleware('auth');
+Route::put('pedidos/{id}', 'PedidoController@update')->name('pedidos.update');//->middleware('auth');
+Route::get('pedidos/{id}/edit', 'PedidoController@edit')->name('pedidos.edit');//->middleware('auth');
+Route::get('pedidos/create', 'PedidoController@create')->name('pedidos.create');//->middleware('auth');
+Route::get('pedidos/{id}', 'PedidoController@show')->name('pedidos.show');
+Route::get('pedidos', 'PedidoController@index')->name('pedidos.index');//->middleware('auth');
+Route::post('pedidos', 'PedidoController@store')->name('pedidos.store');//->middleware('auth');
+Route::get('clientes/{id}/listapedidos', 'PedidoController@listpedidos')->name('pedidos.listpedidos');
+
+
+//Login e Autenticação
 
 Route::get('/login', function(){
     return 'Login';

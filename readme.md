@@ -73,11 +73,3 @@ OBS: Por se tratar de um sistema apenas para provas, não irei aprofundar em um 
 O cliente pode apenas cadastar (comprar), "ver", remover pedidos. Vale ressaltar que após sair da seção o cliente, só terá acesso a seus dados, se, e somente se, lembrar do seu *ID*, passando ele na URL, para acessar o painel de pedidos do cliente. Ou seja, ao sair o cliente, terá que fazer um novo cadastro com novas informações para poder ter acesso painel cliente.
 
 Os campos *email* e *endereço* do cliente recebem o atributo *->unique();* nas mirations, sendo impossível inserir tais dados, caso existentes.
-
-
-
-
-
-Backend Challenge - Rits Tecnologia
-
-Versão fibal para avaliação estará disponível no dia 06/08/2020 às 19:00.

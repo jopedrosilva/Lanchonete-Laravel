@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Painel Administrativo</h1>
+    <h1>Painel Administrativo<a href="{{ url('/') }}"><<</a></h1>
 
     <hr>
     <a href="{{ url('/produtos') }}">Gerenciar Produtos</a>

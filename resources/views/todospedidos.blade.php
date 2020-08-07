@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             @foreach ($pedidos as $pedido)
-                <form method="POST" action="{{ route('pedidos.update', $pedido->id) }}">
+            <form method="POST" action="{{ route('pedidos.update', $pedido->id) }}">
                     <input style="display:none;" type="hidden" name="_method" value="PUT">
                     <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
                 <tr>
@@ -37,7 +37,7 @@
                     </td>
                     <td><button type="submit">Salvar</button></td>
                 </tr>
-                </form>
+            </form>
             @endforeach
         </tbody>
     </table>

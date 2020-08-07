@@ -21,11 +21,11 @@
         <tbody>
             @foreach ($clientes as $cliente)
                 <tr>
-                <td>{{ $cliente->id }}</td>
-                <td>{{ $cliente->nome }}</td>
-                <td>{{ $cliente->email }}</td>
-                <td>{{ $cliente->telefone }}</td>
-                <td>{{ $cliente->endereco }}</td>
+                    <td>{{ $cliente->id }}</td>
+                    <td>{{ $cliente->nome }}</td>
+                    <td>{{ $cliente->email }}</td>
+                    <td>{{ $cliente->telefone }}</td>
+                    <td>{{ $cliente->endereco }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -16,6 +16,7 @@ Auth::routes();
 
 Route::any('produtos/search', 'ProdutoController@search')->name('produtos.search');
 Route::any('clientes/search', 'ProdutoController@search')->name('produtos.search');
+
 //Route::resource('produtos', 'ProdutoController'); //->middleware('auth');
 
 
@@ -42,6 +43,7 @@ Route::get('clientes', 'ClienteController@index')->name('clientes.index');//->mi
 Route::post('{clientes', 'ClienteController@store')->name('clientes.store');//->middleware('auth');
 
 Route::get('listarclientes', 'ClienteController@listarclientes')->name('clientes.listarclientes')->middleware('auth');
+
 //Route::get('clientes', 'ClienteController@listprodutos')->name('clientes.listprodutos');
 //Rotas Pedidos
 
@@ -55,9 +57,6 @@ Route::post('pedidos', 'PedidoController@store')->name('pedidos.store');//->midd
 Route::get('clientes/{id}/listapedidos', 'PedidoController@listpedidos')->name('pedidos.listpedidos');
 
 //Route::put('atualizar/{id}', 'PedidoController@atualizar')->name('pedidos.atualizar');//->middleware('auth');
-
-
-
 
 //Login e Autenticação
 

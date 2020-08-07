@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Exibindo os Produtos</h1>
+<h1>Exibindo os Produtos<a href="{{ url('paineladmin') }}"><<</a></h1>
 
     <a href="{{ route('produtos.create') }}">Cadastar</a>
 
@@ -29,21 +29,23 @@
         <tbody>
             @foreach ($produtos as $produto)
                 <tr>
-                <td>{{ $produto->nome }}</td>
-                <td>{{ $produto->preco }}</td>
-                <td>
-                    <a href="{{ route('produtos.show', $produto->id)}}">Detalhar</a>
-                </td>
-                <td>
-                    <a href="{{ route('produtos.edit', $produto->id) }}">Editar</a>
-                </td>
-                <td>
-                    <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit">Deletar</button>
-                    </form>
-                </td>
+                    <td>{{ $produto->nome }}</td>
+                    <td>
+                        <p><strong>R$ </strong>{{ $produto->preco }}</p>
+                    </td>
+                    <td>
+                        <a href="{{ route('produtos.show', $produto->id)}}">Detalhar</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('produtos.edit', $produto->id) }}">Editar</a>
+                    </td>
+                    <td>
+                        <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit">Deletar</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

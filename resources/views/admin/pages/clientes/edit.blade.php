@@ -8,7 +8,7 @@
     <form action="{{ route('produtos.update', $produto->id) }}" method="post">
         <input type="hidden" name="_method" value="PUT">
         <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
-    <input type="text" name="nome" placeholder="Nome:" value="{{ $produto->nome }}">
-    <input type="text" name="descricao" placeholder="Preço:" value="{{ $produto->preco }}">
+        <input type="text" name="nome" placeholder="Nome:" value="{{ $produto->nome }}">
+        <input type="text" name="descricao" placeholder="Preço:" value="{{ $produto->preco }}">
         <button type="submit">Cadastrar</button>
     </form>

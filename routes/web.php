@@ -12,6 +12,11 @@ Route::get('listarclientes', function () {
     return view('listarclientes');
 })->middleware('auth');
 
+Route::get('gerenciarpedidos', function () {
+    return view('pedidos.todospedidos');
+})->middleware('auth');
+
+
 Auth::routes();
 
 Route::any('produtos/search', 'ProdutoController@search')->name('produtos.search');
@@ -30,6 +35,7 @@ Route::post('produtos', 'ProdutoController@store')->name('produtos.store')->midd
 Route::get('/', 'ProdutoController@listprodutos')->name('produtos.listprodutos');
 
 Route::get('gerenciarpedidos', 'PedidoController@todospedidos')->name('pedidos.todospedidos')->middleware('auth');
+//Route::get('gerenciarpedidos', 'PedidoController@show')->name('pedidos.show')->middleware('auth');
 
 
 //Rotas Clientes

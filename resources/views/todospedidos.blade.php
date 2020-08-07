@@ -6,11 +6,15 @@
 
     <h1>Histórico de Pedidos <a href="{{ url('paineladmin')}}"><<</a></h1>
 
+        
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Codigo do Cliente</th>
+                <th>Nome do Cliente</th>
                 <th>Codigo do Produto</th>
+                <th>Nome do Produto</th>
                 <th>Data de Criação</th>
                 <th>Status</th>
                 <th>Alterações</th>
@@ -23,9 +27,23 @@
                     <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
                 <tr>
                     <td>{{ $pedido->codigo_do_cliente }}</td>
+                    <td>
+                        @foreach ($clientes as $cliente )
+                            @if ($cliente->id == $pedido->codigo_do_cliente)
+                                {{$cliente->nome}}
+                            @endif
+                        @endforeach
+                    </td>
                     <td>{{ $pedido->codigo_do_produto }}</td>
+                    <td>
+                        @foreach ($produtos as $produto )
+                            @if ($produto->id == $pedido->codigo_do_produto)
+                                {{$produto->nome}}
+                            @endif
+                        @endforeach
+                    </td>
                     <td>{{ $pedido->data_de_criacao }}</td>
-                    <td>{{-- $pedido->status --}}
+                    <td>
                         <select id="status" name="status">
                             <option value="{{ $pedido->status }}">{{ $pedido->status }}</option>
                             <option value="Pendente">Pendente</option>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\pedido;
 use App\Models\produto;
+use App\Models\cliente;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -11,10 +12,9 @@ class PedidoController extends Controller
     protected $reques;
     private $repository;
 
-    public function __construct(Request $request, pedido $pedido, produto $produto){
+    public function __construct(Request $request, pedido $pedido){
         $this->$request = $request;
         $this->repository = $pedido;
-        $this->repository_produto = $produto;
     }
 
     public function index(){
@@ -32,9 +32,13 @@ class PedidoController extends Controller
     }
 
     public function todospedidos(){
+        $produtos = produto::all();
         $pedidos = pedido::all();
+        $clientes = cliente::all();
         return view('todospedidos', [
             'pedidos' => $pedidos,
+            'produtos' => $produtos,
+            'clientes' => $clientes,
         ]);
     }
 
@@ -48,14 +52,8 @@ class PedidoController extends Controller
         return redirect()->back();
     }
 
-    public function show($id){
-        if (!$pedido = $this->repository->find($id)){
-            return redirect()->back();
-        } else {
-            return view('admin.pages.pedidos.show', [
-                'pedido' => $pedido
-            ]);
-        }
+    public function show(){
+       
     }
 
     public function edit($id){

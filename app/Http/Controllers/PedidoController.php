@@ -75,6 +75,16 @@ class PedidoController extends Controller
         }
     }
 
+    public function atualizar_pedido(Request $request, $id){
+        if (!$pedido = $this->repository->find($id)){
+            return redirect()->back();
+        } else {
+            $pedido->update($request->all());
+            //dd($request);
+            return redirect()->route('clientes.index');
+        }
+    }
+
     public function destroy($id){
         $pedido = $this->repository->where('id', $id)->first();
         if (!$pedido){

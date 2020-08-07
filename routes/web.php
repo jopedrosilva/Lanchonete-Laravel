@@ -62,6 +62,8 @@ Route::get('pedidos', 'PedidoController@index')->name('pedidos.index');//->middl
 Route::post('pedidos', 'PedidoController@store')->name('pedidos.store');//->middleware('auth');
 Route::get('clientes/{id}/listapedidos', 'PedidoController@listpedidos')->name('pedidos.listpedidos');
 
+Route::put('pedidos/atualizar/{id}', 'PedidoController@atualizar_pedido')->name('pedidos.atualizar_pedido');//->middleware('auth');
+
 //Route::put('atualizar/{id}', 'PedidoController@atualizar')->name('pedidos.atualizar');//->middleware('auth');
 
 //Login e Autenticação

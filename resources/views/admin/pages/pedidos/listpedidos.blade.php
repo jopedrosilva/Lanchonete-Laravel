@@ -13,7 +13,8 @@
                 <th>Nome do Produto</th>
                 <th>Data de Criação</th>
                 <th>Status</th>
-                <th>Ação</th>  
+                <th>Cancelar Pedido</th>
+                <th>Excluir Pedido</th>    
             </tr>
         </thead>
         <tbody>
@@ -27,8 +28,21 @@
                             @endif
                         @endforeach
                     </td>
-                    <td>{{ $pedido->data_de_criacao }}</td>
+                    <td>
+                        <?php
+                            $date=date_create("$pedido->data_de_criacao");
+                            echo date_format($date,"d/m/Y");
+                        ?>
+                    </td>
                     <td>{{ $pedido->status }}</td>
+                    <td>
+                        <form action="{{ route('pedidos.atualizar_pedido', $pedido->id) }}" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">
+                            <input style="display:none;" type="text" id="status" name="status" value="Cancelado">
+                            <button type="submit">Cancelar</button>
+                        </form>
+                    </td>
                     <td>
                         <form action="{{ route('pedidos.destroy', $pedido->id) }}" method="POST">
                             <input type="hidden" name="_method" value="DELETE">

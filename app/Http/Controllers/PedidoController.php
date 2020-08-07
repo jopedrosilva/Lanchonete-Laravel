@@ -80,7 +80,6 @@ class PedidoController extends Controller
             return redirect()->back();
         } else {
             $pedido->update($request->all());
-            //dd($request);
             return redirect()->route('clientes.index');
         }
     }

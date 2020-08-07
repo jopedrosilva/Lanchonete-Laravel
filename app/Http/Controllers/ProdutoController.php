@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateProdutoRequest;
 use App\Models\produto;
 use Illuminate\Http\Request;
 
@@ -33,11 +34,13 @@ class ProdutoController extends Controller{
         return view('admin.pages.produtos.create');
     }
 
-    public function store(Request $request){
+    public function store(StoreUpdateProdutoRequest $request){
+
+
+
         $data = $request->only('nome', 'preco');
         $this->repository->create($data);
         return redirect()->route('produtos.index');
-
     }
 
     public function show($id){

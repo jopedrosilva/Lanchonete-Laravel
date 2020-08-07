@@ -9,8 +9,8 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Codigo do Cliente</th>
                 <th>Codigo do Produto</th>
+                <th>Nome do Produto</th>
                 <th>Data de Criação</th>
                 <th>Status</th>
                 <th>Ação</th>  
@@ -19,8 +19,14 @@
         <tbody>
             @foreach ($pedidos as $pedido)
                 <tr>
-                    <td>{{ $pedido->codigo_do_cliente }}</td>
                     <td>{{ $pedido->codigo_do_produto }}</td>
+                    <td>
+                        @foreach ($produtos as $produto )
+                            @if ($produto->id == $pedido->codigo_do_produto)
+                                {{$produto->nome}}
+                            @endif
+                        @endforeach
+                    </td>
                     <td>{{ $pedido->data_de_criacao }}</td>
                     <td>{{ $pedido->status }}</td>
                     <td>

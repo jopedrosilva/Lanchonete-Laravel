@@ -42,7 +42,12 @@
                             @endif
                         @endforeach
                     </td>
-                    <td>{{ $pedido->data_de_criacao }}</td>
+                    <td>
+                       <?php
+                            $date=date_create("$pedido->data_de_criacao");
+                            echo date_format($date,"d/m/Y");
+                        ?>
+                    </td>
                     <td>
                         <select id="status" name="status">
                             <option value="{{ $pedido->status }}">{{ $pedido->status }}</option>

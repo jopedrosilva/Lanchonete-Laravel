@@ -25,9 +25,11 @@ class PedidoController extends Controller
     }
 
     public function listpedidos($id){
+        $produtos = produto::all();
         $pedidos = $this->repository->search_pedidos($id);
         return view('admin.pages.pedidos.listpedidos', [
             'pedidos' => $pedidos,
+            'produtos' => $produtos,
         ]);
     }
 

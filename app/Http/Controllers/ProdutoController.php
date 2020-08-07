@@ -63,6 +63,7 @@ class ProdutoController extends Controller{
             return redirect()->back();
         } else {
             $produto->update($request->all());
+            //dd($produto);
             return redirect()->route('produtos.index');
         }
     }

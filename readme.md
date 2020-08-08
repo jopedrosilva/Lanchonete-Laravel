@@ -8,9 +8,9 @@ documento apresenta a descrição do desenvolvimento do projeto(site).
 
 ### Tecnologia
 
-PHP >= 7.2.19
-Apache >= 2.4.35
-MySQL >= 5.7.35
+PHP >= 7.2.19 <br>
+Apache >= 2.4.35 <br>
+MySQL >= 5.7.35 <br>
 
 ### Servidor Local
 
@@ -73,3 +73,5 @@ OBS: Por se tratar de um sistema apenas para provas, não irei aprofundar em um 
 O cliente pode apenas cadastar (comprar), "ver", remover pedidos. Vale ressaltar que após sair da seção o cliente, só terá acesso a seus dados, se, e somente se, lembrar do seu *ID*, passando ele na URL, para acessar o painel de pedidos do cliente. Ou seja, ao sair o cliente, terá que fazer um novo cadastro com novas informações para poder ter acesso painel cliente.
 
 Os campos *email* e *endereço* do cliente recebem o atributo *->unique();* nas mirations, sendo impossível inserir tais dados, caso existentes.
+
+As demais validações foram criadas em JavaScript e com a classe Request do próprio Laravel.

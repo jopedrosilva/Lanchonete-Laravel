@@ -34,10 +34,16 @@ class ProdutoController extends Controller{
         return view('admin.pages.produtos.create');
     }
 
-    public function store(StoreUpdateProdutoRequest $request){
-
-
-
+    /**
+     * @param \App\Http\Requests\StoreUpdateProdutoRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request){
+        $request->validate([
+            'nome' => 'required|min:3|max:255',
+            'preco' => 'required|min:1|max:9'
+        ]);
+        
         $data = $request->only('nome', 'preco');
         $this->repository->create($data);
         return redirect()->route('produtos.index');

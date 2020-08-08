@@ -21,10 +21,17 @@ class StoreUpdateProdutoRequest extends FormRequest
      *
      * @return array
      */
+
+     //Exemplo de email mínimo: a@a.com
+     //Exemplo telefone mínimo: 87654321
+     //Exemplo telefone máximo: +55 (84) 98845-6625
     public function rules()
     {
         return [
             'nome' => 'required|min:3|max:255',
+            'email' => 'required|min:7|max:255',
+            'telefone' => 'required|min:8|max:19',
+            'endereco' => 'required|min:3|max:255',
         ];
     }
 }

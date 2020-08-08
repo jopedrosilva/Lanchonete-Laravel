@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateClienteRequest;
 use App\Models\cliente;
 use App\Models\produto;
 use Illuminate\Http\Request;
@@ -36,6 +37,14 @@ class ClienteController extends Controller{
     }
 
     public function store(Request $request){
+        $request->validate([
+            'nome' => 'required|min:3|max:255',
+            'email' => 'required|min:7|max:255',
+            'telefone' => 'required|min:8|max:19',
+            'endereco' => 'required|min:3|max:255',
+        ]);
+
+
         $data = $request->only('nome', 'email', 'telefone', 'endereco');
         $this->repository->create($data);
         return redirect()->route('clientes.index');

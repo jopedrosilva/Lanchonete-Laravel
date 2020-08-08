@@ -53,8 +53,8 @@ Além disso, criei um usuário padrão usando a classe UsersTableSeeder, no qual
 
 Após executá-lo suas credenciais serão as seguintes:
     
-    *email:* admin@admin.com
-    *senha: => 123456
+    email: admin@admin.com
+    senha: => 123456
 
 ## Descrição da Aplicação
 

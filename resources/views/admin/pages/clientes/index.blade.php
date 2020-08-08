@@ -28,7 +28,7 @@
             @foreach ($produtos as $produto)
                 <tr>
                     <td>{{ $produto->nome }}</td>
-                    <td>{{ $produto->preco }}</td>
+                    <td>R$ {{ $produto->preco }}</td>
                     <td>
                         <form action="{{ route('pedidos.store') }}" method="POST">
                             <input style="display:none;" type="text" name="_token" value="{{ csrf_token() }}">

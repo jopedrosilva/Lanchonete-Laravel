@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{ $produto->nome }}</td>
                     <td>
-                        <p><strong>R$ </strong>{{ $produto->preco }}</p>
+                        <p>R$ {{ $produto->preco }}</p>
                     </td>
                     <td>
                         <a href="{{ route('produtos.show', $produto->id)}}">Detalhar</a>

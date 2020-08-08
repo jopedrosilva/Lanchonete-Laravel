@@ -51,6 +51,11 @@ Além disso, criei um usuário padrão usando a classe UsersTableSeeder, no qual
 
 >>> php artisan db:seed
 
+Após executá-lo suas credenciais serão as seguintes:
+    
+    *email:* admin@admin.com
+    *senha: => 123456
+
 ## Descrição da Aplicação
 
 ### Página Inicial
@@ -63,6 +68,8 @@ caso, haja algum cadastrado no sistema. Caso haja produtos cadastrados no banco 
 
 Ao acessar o *LOGIN ADMINISTRATIVO* o usuário será redirecionado para a autenticação padrão do Laravel, no qual, o login e senha são os criados pela classe UsersTableSeeder, como visto na seção *Banco de Dados*. Vale ressaltar que o usuário poderia criar um novo registro usando o *register* padrão do laravel, acessando ele pela URL, no entanto, essa funcionalidade seria facilmente desabilitada e até mesmo removida do site, porém, deixo, mesmo que sem link de acesso, acessível via URL, ficando a critério do próprio "testador" cadastar suas próprias informações.
 Após logar, temos acesso ao Painel administrativo, sendo ele resposável, por dar link a um *CRUD* da Entidade Produto, uma lista de clientes e uma lista de pedidos. Em pedidos, o usuário administrador, pode facilmente, editar o status dos pedidos dos clientes, porém, não pode removê-los, editá-los ou criá-los.
+
+OBS: Após Logar o usuáio administrador será redirecionado para uma página padrão do Laravel, na qual apresentará o _username_(nome de usuário) *Name User Admin*. Com isso é só retornar a tela inicial e verificará que o link *LOGIN ADMINISTRATIVO* foi substituído por *PAINEL ADMINISTRATIVO*, sendo possível acessar e gerenciar funcionalidaes de administrador do sistema.
 
 #### LOGIN CLIENTE
 
